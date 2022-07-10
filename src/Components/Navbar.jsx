@@ -18,6 +18,10 @@ const links = [
     to: "/products",
     name: "Products",
   },
+  {
+    to: "/users",
+    name: "Users",
+  },
 ];
 
 const baseStyle = {

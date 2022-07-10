@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
   });
 
   function login() {
+    // console.log('sucessfull login')
     setState({
       ...state,
       isAuth: true,

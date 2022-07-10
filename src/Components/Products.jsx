@@ -12,6 +12,8 @@ export const Products = () => {
     axios.get(`http://localhost:8080/data`).then((r) => {
       console.log(r);
       setData(r.data);
+    }).catch((err) =>{
+      console.log('RUN JSON SERVER MAN')
     });
   }, []);
   return (

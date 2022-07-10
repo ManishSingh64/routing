@@ -1,7 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 export const Login = () => {
+
+  const {login,state} = useContext(AuthContext)
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -17,14 +23,14 @@ export const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(form)
-    axios
-      .post("https://reqres.in/api/login", form)
-      .then((r) => {
-        console.log(r);
-      });
+    console.log(form);
+    axios.post("https://reqres.in/api/login", form).then((r) => {
+      console.log(r);
+      login()
+      navigate('/users')
+    });
   }
-
+  if(state.isAuth) return <h1>Logged In</h1>
   return (
     <div>
       <form action="">
